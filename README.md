@@ -4,6 +4,10 @@ A locally maintained AniList Model Context Protocol server for personal use. Thi
 
 This iteration is **not published through npm**. It is built and run locally so the owner controls the source, fixes, dependencies, and runtime path.
 
+## Why this fork uses native GraphQL
+
+The upstream list wrapper rejected valid nested AniList inputs with `Provided object has a nested value!`. This fork sends list mutations directly to AniList GraphQL, so nested dates and other supported inputs are handled by AniList itself instead of the stale serializer.
+
 ## Requirements
 
 - Node.js 18 or newer
