@@ -4,6 +4,7 @@ import type AniList from "@yuna0x0/anilist-node";
 import type { ConfigSchema } from "../utils/schemas.js";
 import { requireAuth } from "../utils/auth.js";
 import { UpdateEntryOptionsSchema } from "../utils/schemas.js";
+import { saveMediaListEntry } from "../utils/nativeGraphql.js";
 
 export function registerListsTools(
   server: McpServer,
@@ -32,7 +33,12 @@ export function registerListsTools(
           return auth.errorResponse;
         }
 
-        const result = await anilist.lists.addEntry(id, options);
+        const result = await saveMediaListEntry(
+          config.anilistToken as string,
+          options.id,
+          options.mediaId ?? id,
+          options,
+        );
         return {
           content: [
             {
@@ -177,7 +183,12 @@ export function registerListsTools(
           return auth.errorResponse;
         }
 
-        const result = await anilist.lists.updateEntry(id, options);
+        const result = await saveMediaListEntry(
+          config.anilistToken as string,
+          id,
+          options.mediaId,
+          options,
+        );
         return {
           content: [
             {

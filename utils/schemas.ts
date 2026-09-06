@@ -205,44 +205,34 @@ export const UserOptionsInputSchema = z.object({
 
 export const UpdateEntryOptionsSchema = z
   .object({
-    id: z.number().describe("The ID of the list entry"),
-    mediaId: z.number().describe("The ID of the media to add"),
-    status: EntryStatusSchema.describe("The status of the media on the list"),
-    score: z.number().describe("The score given to the media"),
-    scoreRaw: z.number().describe("The raw score in 100 point format"),
-    progress: z.number().describe("The amount of episodes/chapters consumed"),
-    progressVolumes: z
-      .number()
-      .describe("The amount of volumes read (manga only)"),
-    repeat: z.number().describe("Amount of times the media has been repeated"),
-    priority: z.number().describe("Priority level of the media"),
-    private: z.boolean().describe("Whether the entry should be private"),
-    notes: z.string().describe("Text notes about the media"),
+    id: z.number().optional().describe("The ID of the list entry"),
+    mediaId: z.number().optional().describe("The ID of the media"),
+    status: EntryStatusSchema.optional().describe(
+      "The status of the media on the list",
+    ),
+    score: z.number().optional().describe("The score in the user's configured format"),
+    progress: z.number().optional().describe("The episodes or chapters consumed"),
+    progressVolumes: z.number().optional().describe("The volumes read (manga only)"),
+    repeat: z.number().optional().describe("The number of repeats"),
+    priority: z.number().optional().describe("The list priority"),
+    private: z.boolean().optional().describe("Whether the entry is private"),
+    notes: z.string().optional().describe("Text notes about the media"),
     hiddenFromStatusLists: z
       .boolean()
-      .describe("Whether the entry should be hidden from non-custom lists"),
-    customLists: z
-      .array(z.string())
-      .describe("Array of custom list names for the media"),
-    advancedScores: z
-      .array(z.number())
-      .describe("Advanced scores as an object"),
+      .optional()
+      .describe("Whether to hide the entry from status lists"),
+    customLists: z.array(z.string()).optional().describe("Custom list names"),
+    advancedScores: z.array(z.number()).optional().describe("Advanced scores"),
     startedAt: z
-      .object({
-        year: z.number(),
-        month: z.number(),
-        day: z.number(),
-      })
+      .object({ year: z.number(), month: z.number(), day: z.number() })
+      .optional()
       .describe("When the user started the media"),
     completedAt: z
-      .object({
-        year: z.number(),
-        month: z.number(),
-        day: z.number(),
-      })
+      .object({ year: z.number(), month: z.number(), day: z.number() })
+      .optional()
       .describe("When the user completed the media"),
   })
-  .describe("Values to save with the entry");
+  .describe("Only supplied fields are changed; omitted fields are preserved");
 
 export const ActivityFilterTypesSchema = z.object({
   id: z.number().optional().describe("The id of the activity"),
