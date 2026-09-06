@@ -1,12 +1,12 @@
 # AniList MCP — local fork
 
-A locally maintained AniList Model Context Protocol server for personal use. This fork is based on [yuna0x0/anilist-mcp](https://github.com/yuna0x0/anilist-mcp) and uses AniList's GraphQL API directly for authenticated list mutations.
+A locally maintained AniList Model Context Protocol server for personal use. This fork is based on [yuna0x0/anilist-mcp](https://github.com/yuna0x0/anilist-mcp) and preserves its `@yuna0x0/anilist-node` client approach while maintaining the MCP-side list input handling.
 
 This iteration is built and run locally so the owner controls the source, fixes, dependencies, and runtime path. It is not distributed through a package registry.
 
-## Why this fork uses native GraphQL
+## Why this fork preserves the original list path
 
-The upstream list wrapper rejected valid nested AniList inputs with `Provided object has a nested value!`. This fork sends list mutations directly to AniList GraphQL, so nested dates and other supported inputs are handled by AniList itself instead of the stale serializer.
+The upstream MCP's list tools delegate to `@yuna0x0/anilist-node`. Its runtime serializer supports nested GraphQL values, but the MCP schema made every list field mandatory and exposed an outdated `scoreRaw` requirement. This fork keeps the original client and serializer, while making list fields optional and preserving nested date objects such as `startedAt` and `completedAt`.
 
 ## Requirements
 
