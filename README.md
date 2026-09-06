@@ -4,10 +4,6 @@ A locally maintained AniList Model Context Protocol server for personal use. Thi
 
 This iteration is built and run locally so the owner controls the source, fixes, dependencies, and runtime path. It is not distributed through a package registry.
 
-## Why this fork preserves the original list path
-
-The upstream MCP's list tools delegate to `@yuna0x0/anilist-node`. Its runtime serializer supports nested GraphQL values, but the MCP schema made every list field mandatory and exposed an outdated `scoreRaw` requirement. This fork keeps the original client and serializer, while making list fields optional and preserving nested date objects such as `startedAt` and `completedAt`.
-
 ## Requirements
 
 - Node.js 18 or newer
