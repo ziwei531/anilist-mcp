@@ -1,72 +1,18 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
-  "name": "io.github.yuna0x0/anilist-mcp",
-  "description": "AniList MCP server for accessing AniList API data",
+  "name": "io.github.ziwei531/anilist-mcp",
+  "description": "Locally maintained AniList MCP server for personal use",
   "title": "AniList",
   "repository": {
-    "url": "https://github.com/yuna0x0/anilist-mcp",
-    "source": "github",
-    "id": "952023806"
+    "url": "https://github.com/ziwei531/anilist-mcp",
+    "source": "github"
   },
-  "version": "1.4.0",
+  "version": "1.4.1",
   "icons": [
     {
       "src": "https://anilist.co/img/icons/icon.svg",
       "mimeType": "image/svg+xml",
       "sizes": ["any"]
-    }
-  ],
-  "packages": [
-    {
-      "registryType": "npm",
-      "registryBaseUrl": "https://registry.npmjs.org",
-      "identifier": "anilist-mcp",
-      "version": "1.4.0",
-      "transport": {
-        "type": "stdio"
-      },
-      "environmentVariables": [
-        {
-          "name": "ANILIST_TOKEN",
-          "description": "AniList API token for authenticated requests",
-          "format": "string",
-          "isRequired": false,
-          "isSecret": true
-        }
-      ]
-    },
-    {
-      "registryType": "oci",
-      "identifier": "ghcr.io/yuna0x0/anilist-mcp:1.4.0",
-      "transport": {
-        "type": "stdio"
-      },
-      "environmentVariables": [
-        {
-          "name": "ANILIST_TOKEN",
-          "description": "AniList API token for authenticated requests",
-          "format": "string",
-          "isRequired": false,
-          "isSecret": true
-        }
-      ]
-    },
-    {
-      "registryType": "mcpb",
-      "identifier": "https://github.com/yuna0x0/anilist-mcp/releases/download/v1.4.0/anilist-mcp-1.4.0.mcpb",
-      "fileSha256": "f77013615f02d9001b895ffb915b0a642a1a914cbb48d24f6f09e91e3f9c9fd1",
-      "transport": {
-        "type": "stdio"
-      },
-      "environmentVariables": [
-        {
-          "name": "ANILIST_TOKEN",
-          "description": "AniList API token for authenticated requests",
-          "format": "string",
-          "isRequired": false,
-          "isSecret": true
-        }
-      ]
     }
   ]
 }

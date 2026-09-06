@@ -1,14 +1,14 @@
 {
   "name": "anilist-mcp",
   "version": "1.4.1",
-  "mcpName": "io.github.yuna0x0/anilist-mcp",
+  "mcpName": "io.github.ziwei531/anilist-mcp",
   "description": "AniList MCP server for accessing AniList API data",
   "type": "module",
   "module": "index.ts",
   "author": "yuna0x0 <yuna@yuna0x0.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yuna0x0/anilist-mcp.git"
+    "url": "https://github.com/ziwei531/anilist-mcp.git"
   },
   "license": "MIT",
   "bin": {

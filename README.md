@@ -2,7 +2,7 @@
 
 A locally maintained AniList Model Context Protocol server for personal use. This fork is based on [yuna0x0/anilist-mcp](https://github.com/yuna0x0/anilist-mcp) and uses AniList's GraphQL API directly for authenticated list mutations.
 
-This iteration is **not published through npm**. It is built and run locally so the owner controls the source, fixes, dependencies, and runtime path.
+This iteration is built and run locally so the owner controls the source, fixes, dependencies, and runtime path. It is not distributed through a package registry.
 
 ## Why this fork uses native GraphQL
 
@@ -19,11 +19,11 @@ The upstream list wrapper rejected valid nested AniList inputs with `Provided ob
 ```bash
 git clone https://github.com/ziwei531/anilist-mcp.git
 cd anilist-mcp
-npm exec --yes pnpm@10 -- install --frozen-lockfile
-npm exec --yes pnpm@10 -- build
+pnpm install --frozen-lockfile
+pnpm build
 ```
 
-The built server is `dist/index.js`. It is run with Node.js; there is no npm installation or published package involved.
+The built server is `dist/index.js`. It is run with Node.js from this checkout; no registry installation is involved.
 
 ## Configure a local MCP client
 
@@ -58,8 +58,8 @@ A successful check should connect to the local server and discover its tools. Fo
 ```bash
 cd anilist-mcp
 git pull origin main
-npm exec --yes pnpm@10 -- install --frozen-lockfile
-npm exec --yes pnpm@10 -- build
+pnpm install --frozen-lockfile
+pnpm build
 ```
 
 Restart or reload the MCP client after rebuilding so it launches the new `dist/index.js` process.
@@ -69,7 +69,7 @@ Restart or reload the MCP client after rebuilding so it launches the new `dist/i
 ```text
 Help me set up my own local AniList MCP server from https://github.com/ziwei531/anilist-mcp.git.
 
-Do not install an npm package or use npx. Clone the repository, install its locked dependencies locally, build dist/index.js, and configure my MCP client to run that local file with ANILIST_TOKEN supplied through the environment. Keep the token out of files and chat output. Verify the server by connecting to it and listing its tools. Read the repository README first and report the exact local path and verification result.
+Do not install a registry package or use a remote deployment. Clone the repository, install its locked dependencies locally with pnpm, build dist/index.js, and configure my MCP client to run that local file with ANILIST_TOKEN supplied through the environment. Keep the token out of files and chat output. Verify the server by connecting to it and listing its tools. Read the repository README first and report the exact local path and verification result.
 ```
 
 ## Legacy documentation
